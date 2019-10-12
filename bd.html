@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="getBoletos()">Descargar</button>
+</body>
+
+</html>
+​
+​
+<script>
+
+    function getBoletos() {
+        console.log(new Date().getTime());
+        console.log('actualizar')
+        fetch('https://yursold.herokuapp.com/actualizar', {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                data: "Veracru"
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+    }
+
+</script>
